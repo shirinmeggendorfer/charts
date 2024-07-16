@@ -47,10 +47,10 @@ class SimpleLegendEntryLayout implements LegendEntryLayout {
 
     // Get the SymbolRendererBuilder wrapping a common.SymbolRenderer if needed.
     final SymbolRendererBuilder symbolRendererBuilder =
-        legendEntry.symbolRenderer! is SymbolRendererBuilder
-            ? legendEntry.symbolRenderer! as SymbolRendererBuilder
-            : new SymbolRendererCanvas(
-                legendEntry.symbolRenderer!, legendEntry.dashPattern);
+    legendEntry.symbolRenderer! is SymbolRendererBuilder
+        ? legendEntry.symbolRenderer! as SymbolRendererBuilder
+        : new SymbolRendererCanvas(
+        legendEntry.symbolRenderer!, legendEntry.dashPattern);
 
     return new GestureDetector(
         child: symbolRendererBuilder.build(
@@ -65,7 +65,7 @@ class SimpleLegendEntryLayout implements LegendEntryLayout {
   Widget createLabel(BuildContext context, common.LegendEntry legendEntry,
       TappableLegend legend, bool isHidden) {
     TextStyle style =
-        _convertTextStyle(isHidden, context, legendEntry.textStyle);
+    _convertTextStyle(isHidden, context, legendEntry.textStyle);
 
     return new GestureDetector(
         child: new Text(legendEntry.label, style: style),
@@ -122,7 +122,7 @@ class SimpleLegendEntryLayout implements LegendEntryLayout {
   /// Convert the charts common TextStlyeSpec into a standard TextStyle, while
   /// reducing the color opacity to 26% if the entry is hidden.
   ///
-  /// For non-specified values, override the hidden text color to use the body 1
+  /// For non-specified values, override the hidden text color to use the bodyLarge
   /// theme, but allow other properties of [Text] to be inherited.
   TextStyle _convertTextStyle(
       bool isHidden, BuildContext context, common.TextStyleSpec? textStyle) {
@@ -131,7 +131,7 @@ class SimpleLegendEntryLayout implements LegendEntryLayout {
         : null;
     if (isHidden) {
       // Use a default color for hidden legend entries if none is provided.
-      color ??= Theme.of(context).textTheme.bodyText2!.color;
+      color ??= Theme.of(context).textTheme.bodyLarge!.color;
       color = color!.withOpacity(0.26);
     }
 
